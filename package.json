@@ -1,0 +1,26 @@
+{
+    "name": "aviation-utils",
+    "version": "0.1.0",
+    "description": "",
+    "author": "neilcochran <dev.neil.cochran@pm.me>",
+    "license": "MIT",
+    "main": "dist/index.js",
+    "scripts": {
+        "lint": "eslint --fix --ext .ts \"src/**/*\"",
+        "build": "tsc",
+        "dev": "tsc-watch -p tsconfig.json --onSuccess \"node ./dist/index.js\"",
+        "start": "node dist/index.js",
+        "doc": "typedoc --includeVersion --out doc src/"
+    },
+    "keywords": [],
+    "devDependencies": {
+        "@types/node": "^20.5.3",
+        "@typescript-eslint/eslint-plugin": "^6.4.1",
+        "@typescript-eslint/parser": "^6.4.1",
+        "eslint": "^8.47.0",
+        "ts-node": "^10.9.1",
+        "tsc-watch": "^6.0.4",
+        "typedoc": "^0.24.8",
+        "typescript": "^5.1.6"
+    }
+}
