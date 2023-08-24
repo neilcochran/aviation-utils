@@ -8,16 +8,20 @@
     "scripts": {
         "lint": "eslint --fix --ext .ts \"src/**/*\"",
         "build": "tsc",
+        "test": "ts-mocha src/**/*.spec.ts",
         "dev": "tsc-watch -p tsconfig.json --onSuccess \"node ./dist/index.js\"",
         "start": "node dist/index.js",
         "doc": "typedoc --includeVersion --out doc src/"
     },
     "keywords": [],
     "devDependencies": {
+        "@types/mocha": "^10.0.1",
         "@types/node": "^20.5.3",
         "@typescript-eslint/eslint-plugin": "^6.4.1",
         "@typescript-eslint/parser": "^6.4.1",
         "eslint": "^8.47.0",
+        "mocha": "^10.2.0",
+        "ts-mocha": "^10.0.0",
         "ts-node": "^10.9.1",
         "tsc-watch": "^6.0.4",
         "typedoc": "^0.24.8",
