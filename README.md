@@ -2,6 +2,8 @@
 A library of aviation focused utilities.
 
 ## Library Functionality Table of Contents:
+* ICAO Identifier Prefix constants
+    * [Exported ICAOIdentifierPrefix constants for each ICAO identifier prefix code](#icao-identifier-prefix-code-constants)
 * Communication
     * [ADS-B (Automatic Dependent Surveillance–Broadcast)](#ads-b-automatic-dependent-surveillance–broadcast)
     * [ACARS (Aircraft Communications Addressing and Reporting System)](#acars-aircraft-communications-addressing-and-reporting-system)
@@ -15,6 +17,11 @@ A library of aviation focused utilities.
     * [SIGMET (Significant Meteorological Information)](#sigmet-significant-meteorological-information)
 
 
+
+## ICAO Identifier Prefix Code Constants:
+Each full 4 letter ICAO identifier's first 1-2 letters compose the prefix code. This prefix code maps to a specific region, or regions.
+For each ICAO identifier prefix code, an `ICAOIdentifierPrefix` object constant is exported using the prefix code as the variable name.
+See [src/constants/ICAO-identifiers.ts](/src/constants/ICAO-identifiers.ts) for all values.
 ## ADS-B (Automatic Dependent Surveillance–Broadcast)
 Not sure what ADS-B is? Read about it [here](https://www.faa.gov/air_traffic/technology/adsb).
 
