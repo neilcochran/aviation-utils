@@ -1,0 +1,106 @@
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>aviation-utils - v0.1.0</title><meta name="description" content="Documentation for aviation-utils"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/search.js" id="tsd-search-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<div class="tsd-toolbar-contents container">
+<div class="table-cell" id="tsd-search" data-base=".">
+<div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z" fill="var(--color-text)"></path></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
+<div class="field">
+<div id="tsd-toolbar-links"></div></div>
+<ul class="results">
+<li class="state loading">Preparing search index...</li>
+<li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">aviation-utils - v0.1.0</a></div>
+<div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="7" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="11" width="14" height="2" fill="var(--color-text)"></rect></svg></a></div></div></header>
+<div class="container container-main">
+<div class="col-content">
+<div class="tsd-page-title">
+<h2>aviation-utils - v0.1.0</h2></div>
+<div class="tsd-panel tsd-typography"><a id="md:aviation-utils" class="tsd-anchor"></a><h1><a href="#md:aviation-utils"><strong>aviation-utils</strong></a></h1><p>A library of aviation focused utilities.</p>
+<a id="md:library-functionality-table-of-contents" class="tsd-anchor"></a><h2><a href="#md:library-functionality-table-of-contents">Library Functionality Table of Contents:</a></h2><ul>
+<li>Communication<ul>
+<li><a href="#ads-b-automatic-dependent-surveillance%E2%80%93broadcast">ADS-B (Automatic Dependent Surveillance–Broadcast)</a></li>
+<li><a href="#acars-aircraft-communications-addressing-and-reporting-system">ACARS (Aircraft Communications Addressing and Reporting System)</a></li>
+</ul>
+</li>
+<li>Information<ul>
+<li><a href="#icao-identifiers">ICAO Identifiers</a></li>
+<li><a href="#notam-notice-to-air-missions">NOTAM (Notice to Air Missions)</a></li>
+</ul>
+</li>
+<li>Weather<ul>
+<li><a href="#metar-meteorological-aerodrome-report">METAR (Meteorological Aerodrome Report)</a></li>
+<li><a href="#taf-terminal-aerodrome-forecast">TAF (Terminal Aerodrome Forecast)</a></li>
+<li><a href="#airmet-airmens-meteorological-information">AIRMET (Airmen&#39;s Meteorological Information)</a></li>
+<li><a href="#sigmet-significant-meteorological-information">SIGMET (Significant Meteorological Information)</a></li>
+</ul>
+</li>
+</ul>
+<a id="md:ads-b-automatic-dependent-surveillancebroadcast" class="tsd-anchor"></a><h2><a href="#md:ads-b-automatic-dependent-surveillancebroadcast">ADS-B (Automatic Dependent Surveillance–Broadcast)</a></h2><p>Not sure what ADS-B is? Read about it <a href="https://www.faa.gov/air_traffic/technology/adsb">here</a>.</p>
+<p>Functionality supported:</p>
+<ul>
+<li>Parse raw ADS-B (hexadecimal) into ADSBData objects</li>
+<li>Represent a flights data including a collection of time sequential ADS-B data</li>
+</ul>
+<a id="md:acars-aircraft-communications-addressing-and-reporting-system" class="tsd-anchor"></a><h2><a href="#md:acars-aircraft-communications-addressing-and-reporting-system">ACARS (Aircraft Communications Addressing and Reporting System)</a></h2><p>Not sure what ACARS is? Read about it <a href="https://en.wikipedia.org/wiki/ACARS">here</a>.</p>
+<a id="md:icao-identifiers" class="tsd-anchor"></a><h2><a href="#md:icao-identifiers">ICAO Identifiers</a></h2><p>Not sure what an ICAO Identifier is? Read about them <a href="https://en.wikipedia.org/wiki/ICAO_airport_code">here</a></p>
+<p>Functionality supported:</p>
+<ul>
+<li>Parse valid 4 letter ICAO identifiers into  <code>ICAOIdentifier</code> objects</li>
+<li>Exported ICAOIdentifierPrefix constants (and compiled map) for each ICAO identifier prefix</li>
+</ul>
+<a id="md:notam-notice-to-air-missions" class="tsd-anchor"></a><h2><a href="#md:notam-notice-to-air-missions">NOTAM (Notice to Air Missions)</a></h2><p>Not sure what a NOTAM is? Read about them <a href="https://www.faa.gov/about/initiatives/notam/what_is_a_notam">here</a></p>
+<a id="md:metar-meteorological-aerodrome-report" class="tsd-anchor"></a><h2><a href="#md:metar-meteorological-aerodrome-report">METAR (Meteorological Aerodrome Report)</a></h2><p>Not sure what a METAR is? Read about them <a href="https://en.wikipedia.org/wiki/METAR">here</a></p>
+<a id="md:taf-terminal-aerodrome-forecast" class="tsd-anchor"></a><h2><a href="#md:taf-terminal-aerodrome-forecast">TAF (Terminal Aerodrome Forecast)</a></h2><p>Not sure what a TAF is? Read about them <a href="https://en.wikipedia.org/wiki/Terminal_aerodrome_forecast">here</a></p>
+<a id="md:airmet-airmen39s-meteorological-information" class="tsd-anchor"></a><h2><a href="#md:airmet-airmen39s-meteorological-information">AIRMET (Airmen&#39;s Meteorological Information)</a></h2><p>Not sure what an AIRMET is? Read about them <a href="https://en.wikipedia.org/wiki/AIRMET">here</a></p>
+<a id="md:sigmet-significant-meteorological-information" class="tsd-anchor"></a><h2><a href="#md:sigmet-significant-meteorological-information">SIGMET (Significant Meteorological Information)</a></h2><p>Not sure what a SIGMET is? Read about them <a href="https://en.wikipedia.org/wiki/SIGMET">here</a></p>
+<a id="md:versions" class="tsd-anchor"></a><h2><a href="#md:versions">Versions</a></h2><p>View all versions of in the <a href="/CHANGELOG.md">CHANGELOG.md</a></p>
+<a id="md:license" class="tsd-anchor"></a><h2><a href="#md:license">License</a></h2><p>This project is licensed under the MIT License - see the <a href="/LICENSE.md">LICENSE.md</a> file for details</p>
+</div></div>
+<div class="col-sidebar">
+<div class="page-menu">
+<div class="tsd-navigation settings">
+<details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)" id="icon-chevronDown"></path></svg>Settings</h3></summary>
+<div class="tsd-accordion-details">
+<div class="tsd-filter-visibility">
+<h4 class="uppercase">Member Visibility</h4><form>
+<ul id="tsd-filter-options">
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></form></div>
+<div class="tsd-theme-toggle">
+<h4 class="uppercase">Theme</h4><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div>
+<details open class="tsd-index-accordion tsd-page-navigation"><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="#icon-chevronDown"></use></svg>On This Page</h3></summary>
+<div class="tsd-accordion-details">
+<ul>
+<li>
+<ul>
+<li><a href="#md:aviation-utils"><span>aviation-<wbr/>utils</span></a></li>
+<li>
+<ul>
+<li><a href="#md:library-functionality-table-of-contents"><span>Library <wbr/>Functionality <wbr/>Table of <wbr/>Contents:</span></a></li>
+<li><a href="#md:ads-b-automatic-dependent-surveillancebroadcast"><span>ADS-<wbr/>B (<wbr/>Automatic <wbr/>Dependent <wbr/>Surveillance–<wbr/>Broadcast)</span></a></li>
+<li><a href="#md:acars-aircraft-communications-addressing-and-reporting-system"><span>ACARS (<wbr/>Aircraft <wbr/>Communications <wbr/>Addressing and <wbr/>Reporting <wbr/>System)</span></a></li>
+<li><a href="#md:icao-identifiers"><span>ICAO <wbr/>Identifiers</span></a></li>
+<li><a href="#md:notam-notice-to-air-missions"><span>NOTAM (<wbr/>Notice to <wbr/>Air <wbr/>Missions)</span></a></li>
+<li><a href="#md:metar-meteorological-aerodrome-report"><span>METAR (<wbr/>Meteorological <wbr/>Aerodrome <wbr/>Report)</span></a></li>
+<li><a href="#md:taf-terminal-aerodrome-forecast"><span>TAF (<wbr/>Terminal <wbr/>Aerodrome <wbr/>Forecast)</span></a></li>
+<li><a href="#md:airmet-airmen39s-meteorological-information"><span>AIRMET (<wbr/>Airmen&#39;s <wbr/>Meteorological <wbr/>Information)</span></a></li>
+<li><a href="#md:sigmet-significant-meteorological-information"><span>SIGMET (<wbr/>Significant <wbr/>Meteorological <wbr/>Information)</span></a></li>
+<li><a href="#md:versions"><span>Versions</span></a></li>
+<li><a href="#md:license"><span>License</span></a></li></ul></li></ul></li></ul></div></details></div>
+<div class="site-menu">
+<nav class="tsd-navigation"><a href="index.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-4"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-namespace)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.33 16V7.24H10.77L13.446 14.74C13.43 14.54 13.41 14.296 13.386 14.008C13.37 13.712 13.354 13.404 13.338 13.084C13.33 12.756 13.326 12.448 13.326 12.16V7.24H14.37V16H12.93L10.266 8.5C10.282 8.692 10.298 8.936 10.314 9.232C10.33 9.52 10.342 9.828 10.35 10.156C10.366 10.476 10.374 10.784 10.374 11.08V16H9.33Z" fill="var(--color-text)"></path></g></svg><span>aviation-<wbr/>utils -<wbr/> v0.1.0</span></a>
+<ul class="tsd-small-nested-navigation">
+<li><a href="modules/communication_ACARS_ACARS.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>communication/ACARS/ACARS</span></a></li>
+<li><a href="modules/communication_ADS_B_ADS_B.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>communication/ADS-<wbr/>B/ADS-<wbr/>B</span></a></li>
+<li><a href="modules/constants_speed.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>constants/speed</span></a></li>
+<li><a href="modules/index.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>index</span></a></li>
+<li><a href="modules/information_ICAO_identifiers.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>information/ICAO-<wbr/>identifiers</span></a></li>
+<li><a href="modules/information_NOTAM.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>information/NOTAM</span></a></li>
+<li><a href="modules/information_weather_AIRMET_AIRMET.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>information/weather/AIRMET/AIRMET</span></a></li>
+<li><a href="modules/information_weather_METAR_METAR.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>information/weather/METAR/METAR</span></a></li>
+<li><a href="modules/information_weather_SIGMET_SIGMET.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>information/weather/SIGMET/SIGMET</span></a></li>
+<li><a href="modules/information_weather_TAF_TAF.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>information/weather/TAF/TAF</span></a></li></ul></nav></div></div></div>
+<div class="tsd-generator">
+<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
+<div class="overlay"></div></body></html>
