@@ -4,9 +4,9 @@
  */
 export class ICAOIdentifierPrefix {
     /**
-     * @param prefixCode //1-2 letter ICAO prefix code
-     * @param regionsDisplayText /The region(s) associated to the prefix code in display format
-     * @param extraDetails //Optionally, any notable details associated with the prefix code
+     * @param prefixCode 1-2 letter ICAO prefix code
+     * @param regionsDisplayText The region(s) associated to the prefix code in display format
+     * @param extraDetails Optionally, any notable details associated with the prefix code
      */
     constructor(public prefixCode: string, public regionsDisplayText: string, public extraDetails?: string) {}
 
@@ -14,6 +14,56 @@ export class ICAOIdentifierPrefix {
         return this.regionsDisplayText + (this.extraDetails != null ? ' ' + this.extraDetails : '')
     }
 }
+
+/**
+ * An interface representing a valid ICAO identifier.
+ */
+export interface ICAOIdentifier {
+    /** The 4 letter ICAO identifier string */
+    fullIdentifier: string;
+
+    /** The associated ICAO identifier prefix object */
+    identifierPrefix: ICAOIdentifierPrefix;
+
+    /** The 2-3 letter airport identifier */
+    airportIdentifier: string;
+
+    /** Optionally, the name of the airport associated with the ICAO identifier */
+    airportName?: string;
+}
+
+/**
+ * Parse a valid 4 letter ICAO identifier into an ICAOIdentifier object. Returns undefined if given an invalid ICAO identifier
+ * This will not populate ICAOIdentifier's optional `airportName` as it does not have that information, but it can be programmatically added
+ * @param fullIdentifier 
+ * @returns a populated ICAOIdentifier object, or undefined in the input is invalid
+ */
+export function parseICAOIdentifier(fullIdentifier: string): ICAOIdentifier | undefined {
+    if(fullIdentifier.length !== 4) {
+        return undefined;
+    }
+    //see if we have a match for a single char prefix
+    const singleCharPrefix = identifierPrefixMap[fullIdentifier[0]];
+    if(singleCharPrefix !== undefined) {
+        return {
+            fullIdentifier: fullIdentifier,
+            identifierPrefix: singleCharPrefix,
+            airportIdentifier: fullIdentifier.substring(1)
+        };
+    }
+    //see if we have a match for a two char prefix, since we did not find a single char prefix match
+    const twoCharPrefix = identifierPrefixMap[fullIdentifier.substring(0, 2)];
+    if(twoCharPrefix !== undefined) {
+        return {
+            fullIdentifier: fullIdentifier,
+            identifierPrefix: twoCharPrefix,
+            airportIdentifier: fullIdentifier.substring(2)
+        }
+    }
+    //unable to parse due to no valid ICAO prefix match
+    return undefined;
+}
+
 
 /**
  * constants for each ICAO identifier prefix code
@@ -301,3 +351,244 @@ export const  Y = new ICAOIdentifierPrefix('Y', 'Australia', '(including Norfolk
 export const  Z = new ICAOIdentifierPrefix('Z', 'Mainland China', '(except ZK and ZM)');
 export const  ZK = new ICAOIdentifierPrefix('ZK', 'North Korea');
 export const  ZM = new ICAOIdentifierPrefix('ZM', 'Mongolia');
+
+//Build a map of all prefix codes that map to their corresponding ICAOIdentifierPrefix object. This is used internally in parseICAOIdentifier() but is exported for general use.
+export const identifierPrefixMap: Record<string, ICAOIdentifierPrefix> = {
+    'AG': AG,
+    'AN': AN,
+    'AY': AY,
+    'BG': BG,
+    'BI': BI,
+    'BK': BK,
+    'C': C,
+    'DA': DA,
+    'DB': DB,
+    'DF': DF,
+    'DG': DG,
+    'DI': DI,
+    'DN': DN,
+    'DR': DR,
+    'DT': DT,
+    'DX': DX,
+    'EB': EB,
+    'ED': ED,
+    'EE': EE,
+    'EF': EF,
+    'EG': EG,
+    'EH': EH,
+    'EI': EI,
+    'EK': EK,
+    'EL': EL,
+    'EN': EN,
+    'EP': EP,
+    'ES': ES,
+    'ET': ET,
+    'EV': EV,
+    'EY': EY,
+    'FA': FA,
+    'FB': FB,
+    'FC': FC,
+    'FD': FD,
+    'FE': FE,
+    'FG': FG,
+    'FH': FH,
+    'FI': FI,
+    'FJ': FJ,
+    'FK': FK,
+    'FL': FL,
+    'FM': FM,
+    'FN': FN,
+    'FO': FO,
+    'FP': FP,
+    'FQ': FQ,
+    'FS': FS,
+    'FT': FT,
+    'FV': FV,
+    'FW': FW,
+    'FX': FX,
+    'FY': FY,
+    'FZ': FZ,
+    'GA': GA,
+    'GB': GB,
+    'GC': GC,
+    'GE': GE,
+    'GF': GF,
+    'GG': GG,
+    'GL': GL,
+    'GM': GM,
+    'GO': GO,
+    'GQ': GQ,
+    'GS': GS,
+    'GU': GU,
+    'GV': GV,
+    'HA': HA,
+    'HB': HB,
+    'HC': HC,
+    'HD': HD,
+    'HE': HE,
+    'HH': HH,
+    'HJ': HJ,
+    'HK': HK,
+    'HL': HL,
+    'HR': HR,
+    'HS': HS,
+    'HT': HT,
+    'HU': HU,
+    'K': K,
+    'LA': LA,
+    'LB': LB,
+    'LC': LC,
+    'LD': LD,
+    'LE': LE,
+    'LF': LF,
+    'LG': LG,
+    'LH': LH,
+    'LI': LI,
+    'LJ': LJ,
+    'LK': LK,
+    'LL': LL,
+    'LO': LO,
+    'LP': LP,
+    'LQ': LQ,
+    'LR': LR,
+    'LS': LS,
+    'LT': LT,
+    'LU': LU,
+    'LV': LV,
+    'LW': LW,
+    'LX': LX,
+    'LY': LY,
+    'LZ': LZ,
+    'MB': MB,
+    'MD': MD,
+    'MG': MG,
+    'MH': MH,
+    'MK': MK,
+    'MM': MM,
+    'MN': MN,
+    'MP': MP,
+    'MR': MR,
+    'MS': MS,
+    'MT': MT,
+    'MU': MU,
+    'MW': MW,
+    'MY': MY,
+    'MZ': MZ,
+    'NC': NC,
+    'NF': NF,
+    'NG': NG,
+    'NI': NI,
+    'NL': NL,
+    'NS': NS,
+    'NT': NT,
+    'NV': NV,
+    'NW': NW,
+    'NZ': NZ,
+    'OA': OA,
+    'OB': OB,
+    'OE': OE,
+    'OI': OI,
+    'OJ': OJ,
+    'OK': OK,
+    'OL': OL,
+    'OM': OM,
+    'OO': OO,
+    'OP': OP,
+    'OR': OR,
+    'OS': OS,
+    'OT': OT,
+    'OY': OY,
+    'PA': PA,
+    'PB': PB,
+    'PC': PC,
+    'PF': PF,
+    'PG': PG,
+    'PH': PH,
+    'PJ': PJ,
+    'PK': PK,
+    'PL': PL,
+    'PM': PM,
+    'PO': PO,
+    'PP': PP,
+    'PT': PT,
+    'PW': PW,
+    'RC': RC,
+    'RJ': RJ,
+    'RK': RK,
+    'RO': RO,
+    'RP': RP,
+    'SA': SA,
+    'SB': SB,
+    'SC': SC,
+    'SD': SD,
+    'SE': SE,
+    'SF': SF,
+    'SG': SG,
+    'SH': SH,
+    'SI': SI,
+    'SJ': SJ,
+    'SK': SK,
+    'SL': SL,
+    'SM': SM,
+    'SN': SN,
+    'SO': SO,
+    'SP': SP,
+    'SS': SS,
+    'SU': SU,
+    'SV': SV,
+    'SW': SW,
+    'SY': SY,
+    'TA': TA,
+    'TB': TB,
+    'TD': TD,
+    'TF': TF,
+    'TG': TG,
+    'TI': TI,
+    'TJ': TJ,
+    'TK': TK,
+    'TL': TL,
+    'TN': TN,
+    'TQ': TQ,
+    'TR': TR,
+    'TT': TT,
+    'TU': TU,
+    'TV': TV,
+    'TX': TX,
+    'U': U,
+    'UA': UA,
+    'UB': UB,
+    'UC': UC,
+    'UD': UD,
+    'UG': UG,
+    'UK': UK,
+    'UM': UM,
+    'UT': UT,
+    'VA': VA,
+    'VC': VC,
+    'VD': VD,
+    'VE': VE,
+    'VG': VG,
+    'VH': VH,
+    'VI': VI,
+    'VL': VL,
+    'VM': VM,
+    'VN': VN,
+    'VO': VO,
+    'VQ': VQ,
+    'VR': VR,
+    'VT': VT,
+    'VV': VV,
+    'VY': VY,
+    'WA': WA,
+    'WB': WB,
+    'WI': WI,
+    'WM': WM,
+    'WP': WP,
+    'WQ': WQ,
+    'WR': WR,
+    'WS': WS,
+    'Y': Y,
+    'Z': Z,
+    'ZK': ZK,
+    'ZM': ZM
+}
