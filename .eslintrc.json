@@ -15,7 +15,7 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "no-unused-vars": [ "ignore" ],
+        "no-unused-vars": [ 0 ],
         "indent": [ "error", 4, { "SwitchCase": 1 } ],
         "no-trailing-spaces": [ "error" ],
         "linebreak-style": [ "error", "unix" ],

@@ -1,5 +1,5 @@
-import assert from "assert";
-import { EG, K, parseICAOIdentifier } from "./ICAO-identifiers";
+import assert from 'assert';
+import { EG, K, parseICAOIdentifier } from './ICAO-identifiers';
 
 describe('test ICAO Identification parsing', () => {
     it('should parse the valid ICAO identifier: "KPWM" which has a single letter prefix "K"', () => {

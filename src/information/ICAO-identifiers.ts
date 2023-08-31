@@ -11,7 +11,7 @@ export class ICAOIdentifierPrefix {
     constructor(public prefixCode: string, public regionsDisplayText: string, public extraDetails?: string) {}
 
     public fullDisplayText(): string {
-        return this.regionsDisplayText + (this.extraDetails != null ? ' ' + this.extraDetails : '')
+        return this.regionsDisplayText + (this.extraDetails != null ? ' ' + this.extraDetails : '');
     }
 }
 
@@ -35,7 +35,7 @@ export interface ICAOIdentifier {
 /**
  * Parse a valid 4 letter ICAO identifier into an ICAOIdentifier object. Returns undefined if given an invalid ICAO identifier
  * This will not populate ICAOIdentifier's optional `airportName` as it does not have that information, but it can be programmatically added
- * @param fullIdentifier 
+ * @param fullIdentifier
  * @returns a populated ICAOIdentifier object, or undefined in the input is invalid
  */
 export function parseICAOIdentifier(fullIdentifier: string): ICAOIdentifier | undefined {
@@ -58,7 +58,7 @@ export function parseICAOIdentifier(fullIdentifier: string): ICAOIdentifier | un
             fullIdentifier: fullIdentifier,
             identifierPrefix: twoCharPrefix,
             airportIdentifier: fullIdentifier.substring(2)
-        }
+        };
     }
     //unable to parse due to no valid ICAO prefix match
     return undefined;
@@ -70,12 +70,12 @@ export function parseICAOIdentifier(fullIdentifier: string): ICAOIdentifier | un
  */
 
 // A – Western South Pacific
-export const  AG = new ICAOIdentifierPrefix('AG', 'Solomon Islands'); 
+export const  AG = new ICAOIdentifierPrefix('AG', 'Solomon Islands');
 export const  AN = new ICAOIdentifierPrefix('AN', 'Nauru');
 export const  AY = new ICAOIdentifierPrefix('AY', 'Papua New Guinea');
 
-// B – Greenland, Iceland, and Kosovo (European Alternate)    
-export const  BG = new ICAOIdentifierPrefix('BG', 'Greenland');       
+// B – Greenland, Iceland, and Kosovo (European Alternate)
+export const  BG = new ICAOIdentifierPrefix('BG', 'Greenland');
 export const  BI = new ICAOIdentifierPrefix('BI', 'Iceland');
 export const  BK = new ICAOIdentifierPrefix('BK', 'Kosovo');
 
@@ -85,9 +85,9 @@ export const  C = new ICAOIdentifierPrefix('C', 'Canada');
 // D – Eastern parts of West Africa and Maghreb
 export const  DA = new ICAOIdentifierPrefix('DA', 'Algeria');
 export const  DB = new ICAOIdentifierPrefix('DB', 'Benin');
-export const  DF = new ICAOIdentifierPrefix('DF', 'Burkina Faso');    
+export const  DF = new ICAOIdentifierPrefix('DF', 'Burkina Faso');
 export const  DG = new ICAOIdentifierPrefix('DG', 'Ghana');
-export const  DI = new ICAOIdentifierPrefix('DI', 'Côte d\'Ivoire');   
+export const  DI = new ICAOIdentifierPrefix('DI', 'Côte d\'Ivoire');
 export const  DN = new ICAOIdentifierPrefix('DN', 'Nigeria');
 export const  DR = new ICAOIdentifierPrefix('DR', 'Niger');
 export const  DT = new ICAOIdentifierPrefix('DT', 'Tunisia');
@@ -591,4 +591,4 @@ export const identifierPrefixMap: Record<string, ICAOIdentifierPrefix> = {
     'Z': Z,
     'ZK': ZK,
     'ZM': ZM
-}
+};
