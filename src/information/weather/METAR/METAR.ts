@@ -1,6 +1,7 @@
 import { ICAOIdentifier } from '../../ICAO-identifiers';
 import { Wind } from '../wind';
 import { DateTimeGroup } from '../date-time-group';
+import { Visibility } from '../visibility';
 
 /**
  * A class containing representing all elements of a METAR message
@@ -12,6 +13,7 @@ export class METAR {
         public issuedAt: DateTimeGroup,
         public reportModifier: ReportModifier | undefined,
         public wind: Wind,
+        public visibility: Visibility
     ){}
 }
 

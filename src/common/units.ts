@@ -7,3 +7,10 @@ export enum SpeedUnits {
     METERS_PER_SEC = 'MPS',
     MILES_PER_HOUR = 'MPH'
 }
+
+export enum DistanceUnits {
+    STATUTE_MILES = 'SM',
+    FEET = 'FT',
+    KILOMETERS = 'KM',
+    METERS = 'M',
+}

@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { SpeedUnits } from '../../common/speed';
+import { SpeedUnits } from '../../common/units';
 import { Wind } from './wind';
 
 describe('enforce Wind constructor validation', () => {
@@ -22,39 +22,39 @@ describe('enforce Wind constructor validation', () => {
 
     //Negative test cases
     it('fail to construct a wind object due to invalid speed', () => {
-        assert.throws(() => new Wind(90, -5, 10, SpeedUnits.KNOTS),  {
+        assert.throws(() => new Wind(90, -5, 10, SpeedUnits.KNOTS), {
             name: 'Error',
             message: 'speed cannot be negative: -5'
-        },);
+        });
     });
     it('fail to construct a wind object due to invalid gustSpeed', () => {
-        assert.throws(() => new Wind(50, 15, -7, SpeedUnits.MILES_PER_HOUR),  {
+        assert.throws(() => new Wind(50, 15, -7, SpeedUnits.MILES_PER_HOUR), {
             name: 'Error',
             message: 'gustSpeed cannot be negative: -7'
-        },);
+        });
     });
     it('fail to construct a wind object due to invalid directionAngle', () => {
-        assert.throws(() => new Wind(361, 5, 10, SpeedUnits.METERS_PER_SEC),  {
+        assert.throws(() => new Wind(361, 5, 10, SpeedUnits.METERS_PER_SEC), {
             name: 'Error',
             message: 'directionAngle: 361, must be between 0 and 360 degrees'
-        },);
+        });
     });
     it('fail to construct a wind object due to providing only windsVariableAngleFrom and not windsVariableAngleTo', () => {
-        assert.throws(() => new Wind(10, 12, 16, SpeedUnits.KNOTS, 12),  {
+        assert.throws(() => new Wind(10, 12, 16, SpeedUnits.KNOTS, 12), {
             name: 'Error',
             message: 'when using winds variable, both windsVariableAngleFrom and windsVariableAngleTo must be given'
-        },);
+        });
     });
     it('fail to construct a wind object due to invalid windsVariableAngleFrom', () => {
-        assert.throws(() => new Wind(10, 12, 16, SpeedUnits.KNOTS, 20),  {
+        assert.throws(() => new Wind(10, 12, 16, SpeedUnits.KNOTS, 20), {
             name: 'Error',
             message: 'when using winds variable, both windsVariableAngleFrom and windsVariableAngleTo must be given'
-        },);
+        });
     });
     it('fail to construct a wind object due to invalid windsVariableAngleTo', () => {
-        assert.throws(() => new Wind(10, 12, 16, SpeedUnits.KNOTS, 10, 400),  {
+        assert.throws(() => new Wind(10, 12, 16, SpeedUnits.KNOTS, 10, 400), {
             name: 'Error',
             message: 'windsVariableAngleTo: 400, must be between 0 and 360 degrees'
-        },);
+        });
     });
 });

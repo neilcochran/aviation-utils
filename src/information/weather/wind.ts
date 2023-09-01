@@ -1,4 +1,4 @@
-import { SpeedUnits } from '../../common/speed';
+import { SpeedUnits } from '../../common/units';
 
 /**
  * A class representing Wind. This includes the wind speed, direction, and reported variable wind angles when relevant (if direction varies by 60 degrees or more)
