@@ -1,5 +1,20 @@
 import { DateTime } from 'luxon';
 import { ICAOIdentifier } from '../../ICAO-identifiers';
+import { Wind } from '../wind';
+
+
+/**
+ * A class containing representing all elements of a METAR message
+ */
+export class METAR {
+    constructor(
+        public messageType: MessageType,
+        public icaoIdentifier: ICAOIdentifier,
+        public issuedAt: DateTimeGroup,
+        public reportModifier: ReportModifier | undefined,
+        public wind: Wind
+    ){}
+}
 
 /**
  * An enum representing the type of message.
@@ -18,28 +33,6 @@ export enum ReportModifier {
 }
 
 /**
- * An interface representing a METAR date time group which encodes a day of the month, and a 24 hour time stamp.
- */
-export interface DateTimeGroup {
-    dayOfMonth: number;
-    hour: number;
-    minutes: number;
-    utcDisplay: string;
-}
-
-/**
- * A class containing representing all elements of a METAR message
- */
-export class METAR {
-    constructor(
-        public messageType: MessageType,
-        public icaoIdentifier: ICAOIdentifier,
-        public issuedAt: DateTimeGroup,
-        public reportModifier?: ReportModifier
-    ){}
-}
-
-/**
  * Regex used internally for validating the overall structure/format of a METAR Date Time Group string. This does not fully validate the date time itself, just the format.
  * [0-3] - The first digit of the two digits refers to the day of the month, so it can only be 0-3
  * \d    - Second digit in day of the month
@@ -50,6 +43,16 @@ export class METAR {
  * Z     - Since this is all in UTC, Z represents the GMT offset of zero
  */
 const DATE_TIME_GROUP_REGEX = new RegExp('^[0-3]\\d[0-2]\\d[0-5]\\dZ$');
+
+/**
+ * An interface representing a METAR date time group which encodes a day of the month, and a 24 hour time stamp.
+ */
+export interface DateTimeGroup {
+    dayOfMonth: number;
+    hour: number;
+    minutes: number;
+    utcDisplay: string;
+}
 
 /**
  * Parse a METAR formatted Date Time Group string.
