@@ -26,7 +26,7 @@ export class VariableVisibility extends Visibility {
     /**
      * TODO
      */
-    constructor(minVisibility: number, public maxVisibility: number, public distanceUnits: DistanceUnits, public trend?: VariableVisibilityTrend){
+    constructor(minVisibility: number, public maxVisibility: number, public distanceUnits: DistanceUnits){
         super(minVisibility, distanceUnits);
         if(maxVisibility < 0) {
             throw new Error(`visibility cannot be negative: ${maxVisibility}`);
@@ -43,13 +43,4 @@ export class VariableVisibility extends Visibility {
 export enum VisibilityModifier {
     GreaterThan = 'P',
     LessThan = 'M'
-}
-
-/**
- * TODO
- */
-export enum VariableVisibilityTrend {
-    Increasing = 'U',
-    Decreasing = 'D',
-    NotChanging = 'N'
 }
