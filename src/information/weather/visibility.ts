@@ -1,31 +1,55 @@
 import { DistanceUnits } from '../../common/units';
 
 /**
- *
+ * TODO
  */
 export class Visibility {
 
     /**
-     *
+     * TODO
      * @param visibility
      * @param distanceUnits
-     * @param varyingVisibilityFrom
-     * @param varyingVisibilityTo
+     * @param visibilityModifier
      */
-    constructor(public visibility: number, public distanceUnits: DistanceUnits, public varyingVisibilityFrom?: number, public varyingVisibilityTo?: number){
+    constructor(public visibility: number, public distanceUnits: DistanceUnits, public visibilityModifier?: VisibilityModifier){
         if(visibility < 0) {
             throw new Error(`visibility cannot be negative: ${visibility}`);
         }
-        if((varyingVisibilityFrom != undefined && varyingVisibilityTo == undefined) || (varyingVisibilityFrom == undefined && varyingVisibilityTo != undefined)) {
-            throw new Error('when using variable visibility, both varyingVisibilityFrom and varyingVisibilityTo must be given');
+    }
+}
+
+/**
+ * TODO
+ */
+export class VariableVisibility extends Visibility {
+
+    /**
+     * TODO
+     */
+    constructor(minVisibility: number, public maxVisibility: number, public distanceUnits: DistanceUnits, public trend?: VariableVisibilityTrend){
+        super(minVisibility, distanceUnits);
+        if(maxVisibility < 0) {
+            throw new Error(`visibility cannot be negative: ${maxVisibility}`);
         }
-        if(varyingVisibilityFrom != undefined && varyingVisibilityTo != undefined) {
-            if(varyingVisibilityFrom < 0) {
-                throw new Error(`varyingVisibilityFrom cannot be negative: ${varyingVisibilityFrom}`);
-            }
-            if(varyingVisibilityTo < 0) {
-                throw new Error(`varyingVisibilityTo cannot be negative: ${varyingVisibilityTo}`);
-            }
+        if(minVisibility >= maxVisibility) {
+            throw new Error('minVisibility must be less than maxVisibility');
         }
     }
+}
+
+/**
+ * TODO
+ */
+export enum VisibilityModifier {
+    GreaterThan = 'P',
+    LessThan = 'M'
+}
+
+/**
+ * TODO
+ */
+export enum VariableVisibilityTrend {
+    Increasing = 'U',
+    Decreasing = 'D',
+    NotChanging = 'N'
 }

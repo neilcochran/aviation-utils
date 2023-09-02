@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { Visibility } from './visibility';
+import { VariableVisibility, VariableVisibilityTrend, Visibility, VisibilityModifier } from './visibility';
 import { DistanceUnits } from '../../common/units';
 
 describe('enforce Visibility constructor validation', () => {
@@ -10,13 +10,11 @@ describe('enforce Visibility constructor validation', () => {
         assert.equal(visibility.visibility, 5);
         assert.equal(visibility.distanceUnits, DistanceUnits.STATUTE_MILES);
     });
-    it('construct a valid Visibility object with variable visibility', () => {
-        const visibility = new Visibility(700, DistanceUnits.METERS, 1000, 3000);
+    it('construct a valid Visibility object with visibility modifier', () => {
+        const visibility = new Visibility(1200, DistanceUnits.METERS, VisibilityModifier.LessThan);
         assert.ok(visibility);
-        assert.equal(visibility.visibility, 700);
-        assert.equal(visibility.distanceUnits, DistanceUnits.METERS);
-        assert.equal(visibility.varyingVisibilityFrom, 1000);
-        assert.equal(visibility.varyingVisibilityTo, 3000);
+        assert.equal(visibility.visibility, 1200);
+        assert.equal(visibility.visibilityModifier, VisibilityModifier.LessThan);
     });
 
     //Negative test cases
@@ -26,16 +24,36 @@ describe('enforce Visibility constructor validation', () => {
             message: 'visibility cannot be negative: -1'
         });
     });
-    it('fail to construct due to only passing varyingVisibilityFrom value', () => {
-        assert.throws(() => new Visibility(2000, DistanceUnits.FEET, 500), {
+});
+
+
+describe('enforce VariableVisibility constructor validation', () => {
+    //Positive test cases
+    it('construct a valid Visibility object', () => {
+        const variableVis = new VariableVisibility(600, 1000, DistanceUnits.FEET, VariableVisibilityTrend.Decreasing);
+        assert.ok(variableVis);
+        assert.equal(variableVis.visibility, 600);
+        assert.equal(variableVis.maxVisibility, 1000);
+        assert.equal(variableVis.trend, VariableVisibilityTrend.Decreasing);
+    });
+
+    //Negative test cases
+    it('fail to construct a VariableVisibility object due to negative minVisibility value', () => {
+        assert.throws(() => new VariableVisibility(-1, 2, DistanceUnits.STATUTE_MILES), {
             name: 'Error',
-            message: 'when using variable visibility, both varyingVisibilityFrom and varyingVisibilityTo must be given'
+            message: 'visibility cannot be negative: -1'
         });
     });
-    it('fail to construct due to only passing varyingVisibilityTo value', () => {
-        assert.throws(() => new Visibility(2000, DistanceUnits.FEET, undefined, 500), {
+    it('fail to construct a VariableVisibility object due to negative maxVisibility value', () => {
+        assert.throws(() => new VariableVisibility(-100, 2000, DistanceUnits.METERS), {
             name: 'Error',
-            message: 'when using variable visibility, both varyingVisibilityFrom and varyingVisibilityTo must be given'
+            message: 'visibility cannot be negative: -100'
+        });
+    });
+    it('fail to construct a VariableVisibility object due to maxVisibility being less than minVisibility value', () => {
+        assert.throws(() => new VariableVisibility(2000, 500, DistanceUnits.METERS), {
+            name: 'Error',
+            message: 'minVisibility must be less than maxVisibility'
         });
     });
 });

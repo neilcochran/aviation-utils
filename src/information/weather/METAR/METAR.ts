@@ -2,18 +2,21 @@ import { ICAOIdentifier } from '../../ICAO-identifiers';
 import { Wind } from '../wind';
 import { DateTimeGroup } from '../date-time-group';
 import { Visibility } from '../visibility';
+import { RunwayVisualRange } from './runway-visual-range';
 
 /**
  * A class containing representing all elements of a METAR message
  */
 export class METAR {
+    //TODO determine which fields are optional on reports
     constructor(
         public messageType: MessageType,
         public icaoIdentifier: ICAOIdentifier,
         public issuedAt: DateTimeGroup,
         public reportModifier: ReportModifier | undefined,
         public wind: Wind,
-        public visibility: Visibility
+        public visibility: Visibility,
+        public runwayVisualRanges: RunwayVisualRange[] //typically 1 but up to 4, enforce limit
     ){}
 }
 
