@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { SpeedUnits } from '../../common/units';
+import { SpeedUnits } from '../../../common/units';
 import { Wind } from './wind';
 
 describe('enforce Wind constructor validation', () => {

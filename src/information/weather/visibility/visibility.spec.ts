@@ -1,6 +1,6 @@
 import assert from 'assert';
-import { VariableVisibility, VariableVisibilityTrend, Visibility, VisibilityModifier } from './visibility';
-import { DistanceUnits } from '../../common/units';
+import { VariableVisibility, Visibility, VisibilityModifier } from './visibility';
+import { DistanceUnits } from '../../../common/units';
 
 describe('enforce Visibility constructor validation', () => {
     //Positive test cases
@@ -30,11 +30,10 @@ describe('enforce Visibility constructor validation', () => {
 describe('enforce VariableVisibility constructor validation', () => {
     //Positive test cases
     it('construct a valid Visibility object', () => {
-        const variableVis = new VariableVisibility(600, 1000, DistanceUnits.FEET, VariableVisibilityTrend.Decreasing);
+        const variableVis = new VariableVisibility(600, 1000, DistanceUnits.FEET);
         assert.ok(variableVis);
         assert.equal(variableVis.visibility, 600);
         assert.equal(variableVis.maxVisibility, 1000);
-        assert.equal(variableVis.trend, VariableVisibilityTrend.Decreasing);
     });
 
     //Negative test cases
